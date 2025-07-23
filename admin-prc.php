@@ -1,5 +1,5 @@
 <?php 
-
+//update usr process
 //delete user process
 if(isset($_GET['del_id'])){
     $id= intval($_GET['del_id']); // Converts the 'del_id' value to an integer
