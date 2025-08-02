@@ -24,24 +24,26 @@ $res=mysqli_query($conn,$sql);
             </tr>
         </thead>
         <tbody>
+            <?php if(mysqli_num_rows($res)): ?>
+                <?php while($row=mysqli_fetch_assoc($res)):?>
             <tr>
-                <?php if(mysqli_num_rows($res)): ?>
-                    <?php while($row=mysqli_fetch_assoc($res)):?>
                 <td><?=$row['id']?></td>
                 <td><?=htmlspecialchars($row['name'])?></td>
                 <td><?=htmlspecialchars($row['email'])?></td>
                 <td>
-                    <img src=<?=$row['image']?> height="50" width="50"/>
+                    <img src="<?=$row['image']?>" height="50" width="50"/>
                 </td>
                 <td >
                     <a href="admin-form.php?id=<?=$row['id']?>" onClick="return confirm('Are you sure you want to edit this user?');">
                         <img src="edit.png" alt="Edit" height="20" width="20">
                     </a>
                     <a href="admin-prc.php?del_id=<?=$row['id']?>" onClick="return confirm('Are you sure you want to delete this user?');">
-                        <img src="del.png alt="del" height="20" width="20"/>
+                        <img src="del.png" alt="del" height="20" width="20"/>
                     </a>
                 </td>
             </tr>
+                <?php endwhile; ?>
+            <?php endif; ?>
         </tbody>
     </table>
 </body>

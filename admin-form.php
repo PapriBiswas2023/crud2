@@ -15,7 +15,7 @@ $row=mysqli_fetch_assoc($res);
     <title>Document</title>
 </head>
 <body>
-    <form action="admin-prc.php" method="post">
+    <form action="admin-prc.php" method="post" enctype="multipart/form-data">
         <label for="name">Name</label>
         <input type="text" name="name" id="name" required   value="<?=$row['name']?>">
         <br>

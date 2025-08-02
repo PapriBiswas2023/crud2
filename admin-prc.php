@@ -9,5 +9,6 @@ if(isset($_GET['del_id'])){
         echo "User deleted successfully";
         header("Location: adminpage.php");
         exit();
+    }
 }
 ?>

@@ -57,10 +57,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 //upload image
 if (isset($_POST['upload'])) {
     $image = $_FILES['image']['name'];
-    $image_type = $_FILES['image']['type'];
-    $allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+    
+    $allowed_types = ['jpeg', 'png', 'gif', 'jpg'];
 
-    if (in_array($image_type, $allowed_types)) {
+    if (in_array($image, $allowed_types)) {
         $target = "images/" . basename($image);
         $query = "UPDATE user SET image='$target' WHERE email='" . $_SESSION['email'] . "'";
         $res = mysqli_query($conn, $query);
